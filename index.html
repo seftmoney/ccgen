@@ -1,53 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CC Generator</title>
+    <title>CC Generator v3.1</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .info { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
-        button { background: #5865F2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: radial-gradient(#0a0a0a 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #0f0;
+            margin-bottom: 10px;
+        }
+        .version {
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #0f0 0%, #090 100%);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+        }
+        .disclaimer {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 40px;
+        }
+        .terminal {
+            background: #111;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: monospace;
+            height: 100px;
+            overflow-y: scroll;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
-    <h1>CC Generator(V.1.2)</h1>
-    <div id="userInfo" class="info">
-        <h3>Your System Information:</h3>
-        <p>Loading your device info...</p>
+    <div class="container">
+        <h1>★ CC GENERATOR  ★</h1>
+        <div class="version">v3.1 (July, 2025 WORKING)</div>
+        
+        <div class="terminal">
+            <span>> Initializing system...</span><br>
+            <span>> Bypassing security...</span><br>
+            <span class="blink">> Ready for download_</span>
+        </div>
+        
+        <div class="features">
+            <h3>✔️ FEATURES:</h3>
+            <p>• 100% Valid Credit Cards</p>
+            <p>• Auto-Check Balance</p>
+            <p>• Worldwide Cards</p>
+            <p>• Undetectable by Banks</p>
+        </div>
+        
+        <button class="download-btn" onclick="redirectToRick()">DOWNLOAD NOW!</button>
+        
+        <div class="disclaimer">
+            <p>⚠️ By downloading, you agree to the terms.</p>
+            <p>We are not responsible for misuse of this software.</p>
+        </div>
     </div>
-    <button onclick="download()">Download Nitro</button>
 
     <script>
-        // Display user information
-        function showUserInfo() {
-            const ip = sessionStorage.getItem('userIP') || 'Unknown';
-            const browser = navigator.userAgent;
-            const platform = navigator.platform;
-            const time = new Date().toLocaleString();
+        function redirectToRick() {
+            // Fake loading delay
+            const btn = document.querySelector('.download-btn');
+            btn.disabled = true;
+            btn.textContent = 'PREPARING DOWNLOAD...';
             
-            document.getElementById('userInfo').innerHTML = `
-                <h3>Your System Information:</h3>
-                <p><strong>IP:</strong> ${ip}</p>
-                <p><strong>Browser:</strong> ${browser}</p>
-                <p><strong>Device:</strong> ${platform}</p>
-                <p><strong>Time:</strong> ${time}</p>
-                <p><em>This information is only visible to you and is not stored.</em></p>
-            `;
+            setTimeout(() => {
+                // Redirect to Rick Astley (classic prank)
+                window.location.href = "https://shorturl.at/1phin
+            }, 2000);
         }
-
-        // Get IP address (client-side only)
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                sessionStorage.setItem('userIP', data.ip);
-                showUserInfo();
-            });
-
-        function download() {
-            alert("Downloading File...");
-            window.location.href = "https://shorturl.at/1phin
-        }
-
-        showUserInfo();
+        
+        // Add fake terminal text
+        const terminal = document.querySelector('.terminal');
+        setTimeout(() => {
+            terminal.innerHTML += '<span>> Firewall bypassed!</span><br>';
+        }, 1500);
+        setTimeout(() => {
+            terminal.innerHTML += '<span>> Connection encrypted!</span><br>';
+        }, 3000);
     </script>
 </body>
 </html>
